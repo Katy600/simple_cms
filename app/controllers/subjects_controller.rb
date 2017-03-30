@@ -8,9 +8,20 @@ class SubjectsController < ApplicationController
   end
 
   def new
+    @subject = Subject.new({:name => 'Default'})
   end
 
   def create
+    # 1. We need to instantiate a new object using the form parameters.
+    @subject = Subject.new(subject_params)
+    # 2. We attempt to save that object.
+    if @subject.save
+    # 3. If the save succeeds, we will redirect the user somewhere. In our case, we would redirect to the index action.
+    redirect_to(subjects_path)
+    else
+    # 4. If the save fails, then we want to re-display the form so that the user can fix the problems and resubmit the form.
+    render('new')
+    end
   end
 
   def edit
@@ -23,5 +34,11 @@ class SubjectsController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+
+  def subject_params
+    params.require(:subject).permit(:name, :position, :visible)
   end
 end
