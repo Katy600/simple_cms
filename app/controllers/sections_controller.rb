@@ -1,4 +1,6 @@
 class SectionsController < ApplicationController
+  layout 'admin'
+
   def index
     @sections = Section.sorted
   end
@@ -43,7 +45,7 @@ class SectionsController < ApplicationController
     @section = Section.find(params[:id])
     @section.destroy
     flash[:notice] = "Section '#{@section.name}'destroyed successfully"
-    redirect_to(section_path)
+    redirect_to(sections_path)
   end
 
   private

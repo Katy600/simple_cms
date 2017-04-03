@@ -1,9 +1,4 @@
-<% if !flash[:notice].blank? %>
-  <div class='notice'>
-    <%= flash[:notice]%>
-  </div>
-  <% end %>
-  
+<% @page_title = "All Subjects" %>
 <%= link_to("<< Back to Link", subjects_path, :class => 'back-link') %>
 
 <div class="subjects show">

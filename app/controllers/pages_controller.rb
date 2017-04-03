@@ -1,4 +1,6 @@
 class PagesController < ApplicationController
+  layout 'admin'
+
   def index
     @pages = Page.sorted
   end
@@ -8,7 +10,7 @@ class PagesController < ApplicationController
   end
 
   def new
-    @page = Page.new
+    @page = Page.new({:name => 'Default'})
   end
 
   def create
@@ -18,7 +20,7 @@ class PagesController < ApplicationController
     if @page.save
     # 3. If the save succeeds, we will redirect the user somewhere. In our case, we would redirect to the index action.
     flash[:notice] = "Page was created successfully."
-    redirect_to(page_path)
+    redirect_to(pages_path)
     else
     # 4. If the save fails, then we want to re-display the form so that the user can fix the problems and resubmit the form.
     render('new')
