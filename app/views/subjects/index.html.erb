@@ -1,10 +1,16 @@
+
+<% if !flash[:notice].blank? %>
+  <div class='notice'>
+    <%= flash[:notice]%>
+  </div>
+  <% end %>
+
 <div class="subjects index">
   <h2>Subject</h2>
   <%= link_to('Add new subject', new_subject_path, :class => 'action new')%>
 
   <table class='listing' summary='Subect list'>
     <tr class='header'>
-      <th>#</th>
       <th>Subject</th>
       <th>Visable</th>
       <th>Pages</th>
