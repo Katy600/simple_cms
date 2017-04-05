@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   get 'demo/index'
   get 'demo/other_hello'
   get 'demo/lynda'
+  get 'demo/escape_output'
 
   # get ':controller(/:action(/:id))'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

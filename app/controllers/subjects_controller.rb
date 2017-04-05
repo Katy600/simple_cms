@@ -17,7 +17,7 @@ class SubjectsController < ApplicationController
     @subject = Subject.new(subject_params)
     # 2. We attempt to save that object.
     if @subject.save
-    # 3. If the save succeeds, we will redirect the user somewhere. In our case, we would redirect to the index action.
+      # 3. If the save succeeds, we will redirect the user somewhere. In our case, we would redirect to the index action.
     flash[:notice] = "Subject created successfully."
     redirect_to(subjects_path)
     else

@@ -5,6 +5,7 @@
 
   <table class='listing' summary='Page list'>
     <tr class='header'>
+      <th>#</th>
       <th>Subject ID</th>
       <th>Page</th>
       <th>Permalink</th>
@@ -18,7 +19,7 @@
         <td><%= page.subject_id %></td>
         <td><%= page.name %></td>
         <td><%= page.permalink %></td>
-        <td class="centre"><%= page.visible ? 'Yes' : 'No' %></td>
+        <td class="centre"><%= status_tag(page.visible) %></td>
         <td class="centre"><%= page.sections.size %></td>
         <td class="actions">
           <%= link_to("Show", page_path(page), :class => "action show") %>
