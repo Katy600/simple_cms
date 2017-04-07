@@ -5,11 +5,15 @@
   </tr>
   <tr>
     <th>Position</th>
-    <td><%= f.select(:position, @subject_count) %></td>
+    <td><%= f.select(:position, 1..@subject_count) %></td>
   </tr>
   <tr>
     <th>Visible?</th>
     <td><%= f.check_box(:visible) %></td>
+  </tr>
+  <tr>
+    <th>Created</th>
+    <td><%= f.datetime_select(:created_at, :order => [:month, :day, :year]) %></td>
   </tr>
   <tr>
 </table>

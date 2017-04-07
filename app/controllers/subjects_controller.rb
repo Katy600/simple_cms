@@ -43,6 +43,7 @@ class SubjectsController < ApplicationController
     redirect_to(subject_path(@subject))
     else
     # 4. If the save fails, then we want to re-display the form so that the user can fix the problems and resubmit the form.
+    
     render('edit')
     end
   end
@@ -61,6 +62,6 @@ class SubjectsController < ApplicationController
   private
 
   def subject_params
-    params.require(:subject).permit(:name, :position, :visible)
+    params.require(:subject).permit(:name, :position, :visible, :created_at)
   end
 end
