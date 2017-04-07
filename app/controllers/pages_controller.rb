@@ -10,7 +10,9 @@ class PagesController < ApplicationController
   end
 
   def new
-    @page = Page.new({:name => 'Default'})
+    @page = Page.new
+    @page_count = Page.count + 1
+    @subjects = Subject.sorted
   end
 
   def create
@@ -23,12 +25,16 @@ class PagesController < ApplicationController
     redirect_to(pages_path)
     else
     # 4. If the save fails, then we want to re-display the form so that the user can fix the problems and resubmit the form.
+    @page_count = Page.count + 1
+    @subjects = Subject.sorted
     render('new')
     end
   end
 
   def edit
     @page = Page.find(params[:id])
+    @page_count = Page.count
+    @subjects = Subject.sorted
   end
 
   def update
@@ -37,6 +43,8 @@ class PagesController < ApplicationController
       flash[:notice] = "Page has been updated successfully"
       redirect_to(page_path(@page))
     else
+      @page_count = Page.count + 1
+      @subjects = Subject.sorted
       render('edit')
     end
   end
