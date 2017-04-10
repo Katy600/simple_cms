@@ -1,5 +1,7 @@
 class SubjectsController < ApplicationController
  layout 'admin'
+ 
+
   def index
     @subjects = Subject.sorted
   end
@@ -43,7 +45,7 @@ class SubjectsController < ApplicationController
     redirect_to(subject_path(@subject))
     else
     # 4. If the save fails, then we want to re-display the form so that the user can fix the problems and resubmit the form.
-    
+
     render('edit')
     end
   end
